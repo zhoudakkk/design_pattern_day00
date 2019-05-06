@@ -40,14 +40,7 @@ public class ImageCacheSD implements IImageCache {
             e.printStackTrace();
             Log.e("text123", "put: e = " + e.toString());
         } finally {
-            if (fileOutputStream != null) {
-                try {
-                    fileOutputStream.close();
-                } catch (IOException e) {
-                    Log.e("text123", "put: e = " + e.toString());
-                    e.printStackTrace();
-                }
-            }
+            CloseUtils.CloseStream(fileOutputStream);
         }
     }
 }
